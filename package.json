@@ -1,0 +1,19 @@
+{
+  "name": "bookstoreapi",
+  "version": "1.0.0",
+  "description": "a study workspace for node practises",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Francisomondi/BookStoreApi.git"
+  },
+  "author": "francis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Francisomondi/BookStoreApi/issues"
+  },
+  "homepage": "https://github.com/Francisomondi/BookStoreApi#readme"
+}
