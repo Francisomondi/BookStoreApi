@@ -20,6 +20,8 @@ app.use(bodyParser.json());
 app.get('/',(req,res)=>{
   res.send('This is my landing page');
 });
+
+//route to fetch genres 
 app.get('/genres', (req, res) => {
   Genre.getGenres((err,genres)=>{
       if(err){
@@ -29,15 +31,22 @@ app.get('/genres', (req, res) => {
   });
 });
 
+//fetch books from the database
 app.get('/books', (req, res) => {
   Book.getBooks((err, books) => {
     if (err) {
       throw err;
     }
     res.json(books);
+    
   });
 });
+//fetch specific books by id
+app.get('/books/:id', (req,res)=>{
+  res.send('this should send back a specific book using its id...');
+});
 
-let port = process.env.PORT || 3000;
+//fire up server
+const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server started on port ${port}....`));
 
