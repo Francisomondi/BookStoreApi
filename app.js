@@ -25,7 +25,8 @@ app.get('/',(req,res)=>{
 app.get('/genres', (req, res) => {
   Genre.getGenres((err,genres)=>{
       if(err){
-        throw err;
+        throw 'there is an error somewhere';
+        
       }
       res.json(genres);
   });
@@ -42,8 +43,14 @@ app.get('/books', (req, res) => {
   });
 });
 //fetch specific books by id
-app.get('/books/:id', (req,res)=>{
-  res.send('this should send back a specific book using its id...');
+app.get('/books/:_id', (req,res)=>{
+  Book.getBook(req.params._id,(err, book) => {
+    if (err) {
+      throw err;
+    }
+    res.json(book);
+
+  });
 });
 
 //fire up server

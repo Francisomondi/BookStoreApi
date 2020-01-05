@@ -19,5 +19,7 @@ let Genre = module.exports = mongoose.model('Genre',genreSchema);
 module.exports.getGenres = 
 (callback,limit)=>{
     Genre.find(callback).limit(limit);
-
 }
+
+
+//add genre

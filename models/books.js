@@ -44,3 +44,10 @@ module.exports.getBooks =
         Book.find(callback).limit(limit);
 
     }
+
+    //get a single book
+module.exports.getBook =
+    (_id,callback) => {
+        Book.findById(_id, callback);
+ 
+    }
