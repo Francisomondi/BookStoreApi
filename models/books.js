@@ -45,9 +45,32 @@ module.exports.getBooks =
 
     }
 
+//post a book
+module.exports.addBook =
+    (book, callback) => {
+        Book.create(book, callback);
+    }
+
     //get a single book
 module.exports.getBook =
     (_id,callback) => {
         Book.findById(_id, callback);
  
+    }
+
+
+module.exports.updateBook =
+    (id, book, options, callback) => {
+        let querry = { _id: id };
+        let update = {
+            title: book.title,
+            genre: book.genre,
+            description: book.description,
+            author: book.author,
+            publisher: book.publisher,
+            pages: book.pages,
+            image: book.image
+
+        }
+        Book.findOneAndUpdate(querry, update, options, callback);
     }

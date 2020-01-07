@@ -23,3 +23,16 @@ module.exports.getGenres =
 
 
 //add genre
+module.exports.addGenre =
+    (genre,callback) => {
+        Genre.create(genre,callback);
+    }
+//update genre
+module.exports.updateGenre =
+    (id,genre,options, callback) => {
+        let querry = {_id: id};
+        let update ={
+            name:genre.name
+        }
+        Genre.findOneAndUpdate(querry,update, options,callback);
+    }
