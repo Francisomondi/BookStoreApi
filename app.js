@@ -8,7 +8,8 @@ const Book = require('./models/books');
 //connect to mongoose
 mongoose.connect('mongodb://localhost/bookstore',
  { useNewUrlParser: true,
-useUnifiedTopology: true
+useUnifiedTopology: true,
+   useFindAndModify:false
 }, () => console.log('connected to db'));
 const db = mongoose.connection;
 
@@ -50,7 +51,8 @@ app.put('/genres/:_id', (req, res) => {
   let genre = req.body;
   Genre.updateGenre(id,genre, {}, (err, genre) => {
     if (err) {
-      throw err;
+  
+    throw err;
 
     }
     res.json(genre);
@@ -96,7 +98,6 @@ app.put('/books/:_id', (req, res) => {
   Book.updateBook(id, book, {}, (err, book) => {
     if (err) {
       throw err;
-
     }
     res.json(book);
   });

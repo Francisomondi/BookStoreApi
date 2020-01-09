@@ -34,5 +34,5 @@ module.exports.updateGenre =
         let update ={
             name:genre.name
         }
-        Genre.findOneAndUpdate(querry,update, options,callback);
+        Genre.updateOne(querry,update, options,callback);
     }

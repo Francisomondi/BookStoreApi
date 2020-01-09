@@ -27,7 +27,7 @@ let bookSchema = mongoose.Schema({
         type: String
         
     },
-    image: {
+    img: {
         type: String,
         required: true
     },
@@ -69,7 +69,7 @@ module.exports.updateBook =
             author: book.author,
             publisher: book.publisher,
             pages: book.pages,
-            image: book.image
+            img: book.img
 
         }
         Book.findOneAndUpdate(querry, update, options, callback);
