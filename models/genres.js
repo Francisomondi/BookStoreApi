@@ -27,6 +27,8 @@ module.exports.addGenre =
     (genre,callback) => {
         Genre.create(genre,callback);
     }
+
+
 //update genre
 module.exports.updateGenre =
     (id,genre,options, callback) => {
@@ -35,4 +37,11 @@ module.exports.updateGenre =
             name:genre.name
         }
         Genre.updateOne(querry,update, options,callback);
+    }
+
+//remove genre
+module.exports.removeGenre =
+    (id, callback) => {
+        let querry = { _id: id };
+        Genre.deleteOne(querry, callback);
     }

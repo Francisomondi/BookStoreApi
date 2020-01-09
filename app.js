@@ -59,6 +59,19 @@ app.put('/genres/:_id', (req, res) => {
   });
 });
 
+//update genres
+app.delete('/genres/:_id', (req, res) => {
+  var id = req.params._id;
+  
+  Genre.removeGenre(id, (err, genre) => {
+    if (err) {
+      throw err;
+
+    }
+    res.json(genre);
+  });
+});
+
 //fetch books from the database
 app.get('/books', (req, res) => {
   Book.getBooks((err, books) => {
