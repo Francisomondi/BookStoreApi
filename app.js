@@ -116,6 +116,18 @@ app.put('/books/:_id', (req, res) => {
   });
 });
 
+//delete book
+app.delete('/books/:_id', (req, res) => {
+  var id = req.params._id;
+  
+  Book.deleteBook(id,(err, book) => {
+    if (err) {
+      throw err;
+    }
+    res.json(book);
+  });
+});
+
 //fire up server
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server started on port ${port}....`));
